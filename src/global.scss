@@ -25,7 +25,14 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-main{
-    text-align: center;
-    position: relative;
+
+.fullv-stretch{
+    height: 100%;
+} 
+
+.center-align{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

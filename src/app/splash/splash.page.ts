@@ -1,27 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-splash',
   templateUrl: './splash.page.html',
   styleUrls: ['./splash.page.scss'],
 })
-export class SplashPage implements OnInit {
+export class SplashPage {
 
-  constructor(private router:Router) { }
+  constructor(private locationStrategy:LocationStrategy) {
+    this.preventGoBack();
+   }
 
-  ngOnInit() {
-    this.onPageLoad()
-  }
-
-  onPageLoad(){
-    setTimeout(()=> {
-      this.navigateToHome()
-    }, 3000)
-  }
-
-  //Navigate to homepage on timeout
-  navigateToHome(){
-    this.router.navigate(['home'])
+  preventGoBack(){
+    history.pushState(null,null, location.href);
+    this.locationStrategy.onPopState(()=> {
+      history.pushState(null,null, location.href);
+    });
   }
 }

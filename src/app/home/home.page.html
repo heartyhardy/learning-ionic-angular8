@@ -13,7 +13,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid>
+  <ion-grid class class="fullv-stretch center-align">
     <ion-row>
       <ion-col size-md="6" offset-md="3">
         <ion-card color="light">
@@ -29,16 +29,16 @@
       
               <ion-item>
                 <ion-label>Username</ion-label>
-                <ion-input type="text" position="floating" placeholder="Enter preferred username"></ion-input>
+                <ion-input type="text" #usernameval position="floating" placeholder="Enter preferred username"></ion-input>
               </ion-item>
               
               <ion-item>
                 <ion-label>Password</ion-label>
-                <ion-input type="password" position="floating" placeholder="Enter preferred username"></ion-input>
+                <ion-input type="password" #passwordval position="floating" placeholder="Enter preferred username"></ion-input>
               </ion-item>
       
               <ion-item>
-                <ion-button size="small" slot="end">
+                <ion-button size="small" slot="end" (click)="saveUserData(usernameval.value, passwordval.value)">
                   <ion-icon slot="start" name="save"></ion-icon>
                   Register
                 </ion-button>                
